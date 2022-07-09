@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+    <link rel="icon" href="ski.ico">
+    <style>
+          #mensaje{
+                width: 30%;
+                background-color: rgb(14, 13, 13);
+                color: red;
+            }
+        body
+        {
+            background-color: rgb(243, 225, 126);
+            color:rgba(128, 128, 128, 0.699);
+            font-family: Calibri light;
+            display: flex;
+        }
+        form{
+            border: 2px solid;
+            margin: 1%;
+            padding: 1%;
+        }
+        .container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+    </style>
+   </head>
+    <body>
+               <h1>Complete sus datos por favor</h1>
+                <p>Si desea recibir información acerca de paquetes turísticos para viajar Ushuaia, por favor deje sus datos a continuación:</p>
+        <div class="container">
+            <form name="f1" action="validacion.html" onsubmit="return validacion();">
+                <label for="Nombre">Nombre:</label>
+                <input type="text" name="nombre" id=nombre title="Ingresá tu nombre por favor" placeholder="Ingresar texto"
+                required>
+                <br>
+                <label for="Apellido">Apellido:</label>
+                <input type="text" name="apellido" id=apellido title="Ingresá tu apellido por favor" placeholder="Ingresar texto"
+                required>
+                <br>
+                <label for="mail">Mail:</label>
+                <input type="mail" name="mail" id="mail" title="Ingresá tu email por favor" placeholder="Ingresar texto" required>
+                <label id="mensaje"></label><br>
+                <label for="teléfono">Teléfono:</label>
+                <input type="text" name="teléfono" id="teléfono" title="Ingresá tu número de teléfono por favor" placeholder="Ingresar número" required>
+                <br>
+                <label for="Fecha check in">Fecha Check in</label>
+                <input type="date" required>
+                <br>
+                <label for="Cantidad de pasajeros">Cantidad de pasajeros</label>
+                <input type="number" min=1 required>
+                <br>           
+                <label for="Cantidad de noches">Cantidad de noches</label>
+                <input type="number" min=1 required>
+                <br>            
+                <p>Elige un Tipo de habitación: 
+                    <select name="Habitación">
+                      <option>Standard</option>
+                      <option>Standard Superior</option>
+                      <option>Premium</option>
+                    </select>
+                 </p>
+    <br>
+    <p>¿Desea incluir pasajes aéreos? 
+        <select name="Pasajes">
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+     </p>
+    <br>
+                <input type="submit" value="Enviar datos">
+                <br>
+                <input type="reset" value="Cancelar">
+                          </form>
+        </div>
+
+        <script>
+          function validacion() 
+          {
+              valor = document.getElementById("mail").value;
+              
+                
+              if (!(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|ar)+$/.test(valor)))
+              {
+                  document.getElementById('mensaje').innerHTML = "La dirección de correo electrónico ingresada no es válida." ;
+                  
+                  elemento = document.getElementById('mail');
+                  elemento.value = '';
+                  elemento.focus();
+  
+                  return false;
+              }
+              
+              return true;          
+          }
+      </script>
+    </body>
